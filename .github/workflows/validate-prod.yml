@@ -6,13 +6,13 @@ on:
       -main
     paths:
       - 'force-app.**'
-  jobs:
-    validate:
-      runs-on: unbuntu-latest
-      steps:
-        -uses: actions/checout@v3
-        -name: Validate on Production
-        uses: jawills/sf-deploy@v1.0
-        with: 
-          SFDX_AUTH_URL: ${{screts.SFDX_AUTH_URL}}
-          DRY_RUN: true
+jobs:
+  validate:
+    runs-on: unbuntu-latest
+    steps:
+      -uses: actions/checout@v3
+      -name: Validate on Production
+      uses: jawills/sf-deploy@v1.0
+      with: 
+        SFDX_AUTH_URL: ${{screts.SFDX_AUTH_URL}}
+        DRY_RUN: true
