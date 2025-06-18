@@ -19,10 +19,10 @@ jobs:
 
       - name: Authenticate to Developer Org
         run: echo "${{ secrets.DEV_ORG_URL }}" > sfdx_auth_url.txt
-      - run: sfdx auth:sfdxurl:store -f sfdx_auth_url.txt -a DevOrg
+      - run: sfdx auth:sfdxurl:store -f sfdx_auth_url.txt -a New-Org
 
       - name: Deploy to Developer Org
-        run: sfdx force:source:deploy -p force-app -u DevOrg --testlevel RunLocalTests
+        run: sfdx force:source:deploy -p force-app -u New-Org --testlevel RunLocalTests
 
       - name: Run Apex Tests
-        run: sfdx force:apex:test:run -u DevOrg --resultformat human --outputdir ./tests --codecoverage
+        run: sfdx force:apex:test:run -u New-Org --resultformat human --outputdir ./tests --codecoverage
