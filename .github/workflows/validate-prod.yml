@@ -1,18 +1,19 @@
 name: Validate Production Pull Request
-
+ 
 on: 
   pull_request:
     branches:
-      -main
+      - main
     paths:
-      - 'force-app.**'
+      - 'force-app/**'
+ 
 jobs:
   validate:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest  # Fixed typo: was "unbuntu-latest"
     steps:
-      -uses: actions/checout@v3
-      -name: Validate on Production
-      uses: jawills/sf-deploy@v1.0
-      with: 
-        SFDX_AUTH_URL: ${{screts.SFDX_AUTH_URL}}
-        DRY_RUN: true
+      - uses: actions/checkout@v3  # Fixed typo: was "checout"
+      - name: Validate on Production
+        uses: jawills/sf-deploy@v1.0
+        with: 
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}  # Fixed typo: was "screts"
+          DRY_RUN: true
