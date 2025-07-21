@@ -10,4 +10,7 @@ public class AccountTriggerHandler {
             }
         }
     }
+    public static void testMethod(){
+        return true;
+    }
 }
